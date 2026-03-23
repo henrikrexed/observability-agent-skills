@@ -147,7 +147,6 @@ Choose your AI assistant to get specific setup instructions:
 
 ## 🆚 Comparison with Other Packages
 
-| Feature | This Package | dash0hq/agent-skills |
 |---------|-------------|---------------------|
 | **Focus** | OpenTelemetry + Dynatrace | General observability |
 | **Coverage** | Complete OTTL reference | Basic patterns |
@@ -157,10 +156,8 @@ Choose your AI assistant to get specific setup instructions:
 
 !!! tip "Use Both Packages"
     
-    This package **complements** `dash0hq/agent-skills`. Install both for comprehensive observability coverage:
     
     ```bash
-    npx skills add dash0hq/agent-skills
     npx skills add henrikrexed/observability-agent-skills
     ```
 

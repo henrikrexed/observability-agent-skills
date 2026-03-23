@@ -99,18 +99,6 @@ Skills integrate with VS Code through the AgentSkills protocol, providing contex
 - Error diagnostics  
 - Refactoring suggestions
 
-## 🆚 How This Differs from dash0hq/agent-skills
-
-| Feature | This Package | dash0hq/agent-skills |
-|---------|-------------|---------------------|
-| **Focus** | OpenTelemetry + Dynatrace | General observability |
-| **Coverage** | Complete OTTL reference | Basic patterns |
-| **Security** | Comprehensive PII protection | Limited |
-| **Kubernetes** | Production patterns | Basic examples |
-| **Backend** | Dynatrace-native | Platform agnostic |
-
-**Use together:** This package complements `dash0hq/agent-skills` — install both for comprehensive coverage.
-
 ## 📚 Learning Resources
 
 Created by Henrik Rexed, maintainer of the **[IsItObservable](https://www.youtube.com/@IsItObservable)** YouTube channel:
