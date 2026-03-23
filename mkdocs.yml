@@ -1,0 +1,97 @@
+site_name: OpenTelemetry Observability Agent Skills
+site_description: Universal AgentSkills package for OpenTelemetry observability with AI coding assistants
+site_author: Henrik Rexed
+site_url: https://henrikrexed.github.io/observability-agent-skills/
+
+repo_name: henrikrexed/observability-agent-skills
+repo_url: https://github.com/henrikrexed/observability-agent-skills
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for dark mode
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for light mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - getting-started/index.md
+      - Claude Code: getting-started/claude-code.md
+      - Cursor: getting-started/cursor.md
+      - GitHub Copilot: getting-started/github-copilot.md
+      - Windsurf: getting-started/windsurf.md
+      - Generic: getting-started/generic.md
+  - Skills:
+      - skills/index.md
+      - Instrumentation: skills/instrumentation.md
+      - Collector: skills/collector.md
+      - OTTL: skills/ottl.md
+      - Semantic Conventions: skills/semantic-conventions.md
+      - Dynatrace: skills/dynatrace.md
+  - Examples:
+      - examples/index.md
+      - Quick Start: examples/quick-start.md
+      - Production Patterns: examples/production.md
+  - Contributing: contributing.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/henrikrexed/observability-agent-skills
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@IsItObservable
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/henrikrexed
+
+copyright: Copyright &copy; 2026 Henrik Rexed
