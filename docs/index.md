@@ -145,22 +145,6 @@ Choose your AI assistant to get specific setup instructions:
 
 </div>
 
-## 🆚 Comparison with Other Packages
-
-|---------|-------------|---------------------|
-| **Focus** | OpenTelemetry + Dynatrace | General observability |
-| **Coverage** | Complete OTTL reference | Basic patterns |
-| **Security** | Comprehensive PII protection | Limited examples |
-| **Kubernetes** | Production-ready patterns | Basic configurations |
-| **Backend Integration** | Dynatrace-native workflows | Platform agnostic |
-
-!!! tip "Use Both Packages"
-    
-    
-    ```bash
-    npx skills add henrikrexed/observability-agent-skills
-    ```
-
 ## 📚 Learning Resources
 
 Created by Henrik Rexed, maintainer of the **[IsItObservable](https://www.youtube.com/@IsItObservable)** YouTube channel:
