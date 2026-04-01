@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Windsurf Setup
 
 Configure OpenTelemetry observability skills for Windsurf IDE with AI-enhanced development capabilities.
@@ -5,6 +19,7 @@ Configure OpenTelemetry observability skills for Windsurf IDE with AI-enhanced d
 ## Installation
 
 1. **Install the skills package:**
+
    ```bash
    npx skills add henrikrexed/observability-agent-skills
    ```
@@ -14,6 +29,7 @@ Configure OpenTelemetry observability skills for Windsurf IDE with AI-enhanced d
 ## Windsurf Configuration
 
 ### Create .windsurfrules
+
 Create `.windsurfrules` in your project root to configure Windsurf's AI behavior:
 
 ```yaml
@@ -204,6 +220,7 @@ quality_checks:
 ```
 
 ### Create .windsurf/project.json (Optional)
+
 Enhanced project configuration for better AI assistance:
 
 ```json
@@ -257,6 +274,7 @@ Enhanced project configuration for better AI assistance:
 ## Testing Your Setup
 
 ### AI Code Assistance Test
+
 Use Windsurf's AI features to request observability code:
 
 ```
@@ -264,6 +282,7 @@ Add OpenTelemetry instrumentation to this Express.js service with comprehensive 
 ```
 
 Expected features in response:
+
 - Complete SDK initialization
 - Custom span creation with safe attributes
 - Comprehensive error handling
@@ -271,6 +290,7 @@ Expected features in response:
 - Kubernetes-aware resource attributes
 
 ### Configuration Generation Test
+
 Request collector configuration:
 
 ```
@@ -278,6 +298,7 @@ Generate a production-ready OpenTelemetry collector configuration for Kubernetes
 ```
 
 Should generate:
+
 - Complete YAML configuration
 - Proper processor ordering
 - OTTL transformation rules
@@ -285,6 +306,7 @@ Should generate:
 - Performance and security optimizations
 
 ### Code Review Test
+
 Select existing instrumentation code and use Windsurf's analysis:
 
 ```
@@ -294,6 +316,7 @@ Analyze this OpenTelemetry instrumentation for security vulnerabilities, perform
 ## Windsurf-Specific Features
 
 ### AI Code Suggestions
+
 Windsurf provides real-time suggestions for:
 
 - OpenTelemetry API usage
@@ -303,6 +326,7 @@ Windsurf provides real-time suggestions for:
 - Error handling improvements
 
 ### Intelligent Refactoring
+
 Windsurf can help refactor code to:
 
 - Add proper instrumentation
@@ -312,6 +336,7 @@ Windsurf can help refactor code to:
 - Enhance error handling
 
 ### Context-Aware Documentation
+
 Windsurf generates documentation that includes:
 
 - Instrumentation strategy explanations
@@ -321,6 +346,7 @@ Windsurf generates documentation that includes:
 - Troubleshooting guides
 
 ### Smart Code Completion
+
 Enhanced completion for:
 
 - OpenTelemetry attribute names
@@ -332,6 +358,7 @@ Enhanced completion for:
 ## Framework Integration
 
 ### Express.js Setup
+
 Add to `.windsurfrules`:
 
 ```yaml
@@ -353,6 +380,7 @@ express_patterns:
 ```
 
 ### Django Setup
+
 Add to `.windsurfrules`:
 
 ```yaml
@@ -376,6 +404,7 @@ django_patterns:
 ## Advanced Configuration
 
 ### Multi-Service Projects
+
 For microservices architecture:
 
 ```yaml
@@ -406,6 +435,7 @@ shared_patterns:
 ```
 
 ### Environment-Specific Rules
+
 Configure different rules for different environments:
 
 ```yaml
@@ -430,24 +460,28 @@ environments:
 ## Windsurf Workflow
 
 ### 1. AI-Assisted Development
+
 1. **Write intent comments** describing observability needs
 2. **Let Windsurf suggest** appropriate instrumentation
 3. **Review and customize** the generated code
 4. **Iterate** based on feedback and requirements
 
 ### 2. Intelligent Code Review
+
 1. **Select code sections** for review
 2. **Request specific analysis** (security, performance, compliance)
 3. **Apply suggested improvements**
 4. **Validate** changes meet requirements
 
 ### 3. Configuration Management
+
 1. **Describe infrastructure needs**
 2. **Generate configuration files**
 3. **Customize** for specific requirements
 4. **Validate** against best practices
 
 ### 4. Documentation Generation
+
 1. **Request documentation** for implemented patterns
 2. **Generate troubleshooting guides**
 3. **Create deployment instructions**
@@ -456,6 +490,7 @@ environments:
 ## Performance Optimization
 
 ### AI-Suggested Optimizations
+
 Windsurf can suggest:
 
 ```yaml
@@ -477,6 +512,7 @@ optimizations:
 ```
 
 ### Monitoring Suggestions
+
 ```yaml
 monitoring_enhancements:
   collector_health:
@@ -493,18 +529,21 @@ monitoring_enhancements:
 ## Troubleshooting
 
 ### AI Not Suggesting Observability Patterns
+
 1. Check `.windsurfrules` syntax and formatting
 2. Verify skills are enabled in configuration
 3. Use specific observability terminology
 4. Reference OpenTelemetry explicitly in prompts
 
 ### Inconsistent Code Generation
+
 1. Update `.windsurfrules` with more detailed guidelines
 2. Include specific examples of desired patterns
 3. Use technology-specific configuration sections
 4. Provide more context about your environment
 
 ### Missing Security Patterns
+
 1. Emphasize security requirements in configuration
 2. Include PII protection examples
 3. Set security_first to true
@@ -513,6 +552,7 @@ monitoring_enhancements:
 ## Best Practices
 
 ### 1. Descriptive Intent Comments
+
 Use clear comments to guide AI suggestions:
 
 ```javascript
@@ -527,6 +567,7 @@ function processUserOrder(user, order) {
 ```
 
 ### 2. Technology-Specific Configuration
+
 Customize rules for your specific technology stack:
 
 ```yaml
@@ -539,6 +580,7 @@ my_stack:
 ```
 
 ### 3. Iterative Improvement
+
 Continuously refine your configuration:
 
 ```yaml
@@ -549,6 +591,7 @@ Continuously refine your configuration:
 ```
 
 ### 4. Team Consistency
+
 Share configuration across your team:
 
 ```bash

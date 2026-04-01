@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Telemetry Signal Overview
 
 OpenTelemetry defines three signal types that work together to provide complete observability.
@@ -5,15 +19,18 @@ OpenTelemetry defines three signal types that work together to provide complete 
 ## Signal Types
 
 ### Traces
+
 Represent requests flowing through distributed systems.
 
 **When to use:**
+
 - Request/response cycles
 - Cross-service communication
 - Error debugging and troubleshooting
 - Understanding system flow
 
 **Structure:**
+
 ```
 Trace (overall request)
 ├── Span (service A)
@@ -24,23 +41,28 @@ Trace (overall request)
 ```
 
 ### Metrics  
+
 Numerical measurements aggregated over time.
 
 **When to use:**
+
 - System health monitoring
 - Performance trends
 - Alerting and SLOs
 - Capacity planning
 
 **Types:**
+
 - **Counter**: Monotonic increasing (requests, errors)
 - **Gauge**: Point-in-time values (CPU, memory)
 - **Histogram**: Distribution of values (latency, size)
 
 ### Logs
+
 Discrete events with timestamps and context.
 
 **When to use:**
+
 - Debugging specific events
 - Audit trails
 - Business events
@@ -49,6 +71,7 @@ Discrete events with timestamps and context.
 ## Signal Correlation
 
 ### Trace-Log Correlation
+
 Link logs to traces using trace and span IDs:
 
 ```javascript
@@ -60,6 +83,7 @@ logger.info('User logged in', {
 ```
 
 ### Span-Metric Correlation
+
 Create metrics from span data:
 
 ```python
@@ -80,6 +104,7 @@ with tracer.start_as_current_span("api.request") as span:
 ```
 
 ### Resource Consistency
+
 Use identical resource attributes across all signals:
 
 ```yaml
@@ -94,6 +119,7 @@ resource:
 ## Data Relationships
 
 ### Hierarchical Structure
+
 ```
 Service (Resource) 
 ├── Request (Trace)
@@ -104,7 +130,9 @@ Service (Resource)
 ```
 
 ### Temporal Alignment
+
 Ensure timestamps are synchronized:
+
 - Use consistent time sources
 - Account for clock skew in distributed systems
 - Align metric collection intervals with trace durations
@@ -112,20 +140,25 @@ Ensure timestamps are synchronized:
 ## Best Practices
 
 ### Signal Selection
+
 - **High-frequency operations**: Metrics + sampling
 - **Critical business flows**: Full traces
 - **Error scenarios**: Traces + logs
 - **Performance analysis**: Metrics + exemplars
 
 ### Context Propagation
+
 Always propagate context between:
+
 - HTTP requests
 - Message queue operations  
 - Database transactions
 - Async operations
 
 ### Attribute Consistency
+
 Use semantic conventions for common attributes:
+
 - `http.method`, `http.status_code` for HTTP
 - `db.system`, `db.operation` for databases
 - `messaging.system`, `messaging.operation` for queues

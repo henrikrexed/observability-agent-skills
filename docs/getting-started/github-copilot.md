@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # GitHub Copilot Setup
 
 Configure OpenTelemetry observability skills for GitHub Copilot with enhanced context and intelligent code suggestions.
@@ -5,6 +19,7 @@ Configure OpenTelemetry observability skills for GitHub Copilot with enhanced co
 ## Installation
 
 1. **Install the skills package:**
+
    ```bash
    npx skills add henrikrexed/observability-agent-skills
    ```
@@ -14,6 +29,7 @@ Configure OpenTelemetry observability skills for GitHub Copilot with enhanced co
 ## GitHub Copilot Configuration
 
 ### Create copilot-instructions.md
+
 Create `copilot-instructions.md` in your project root to provide context to GitHub Copilot:
 
 ```markdown
@@ -64,6 +80,7 @@ span.setAttribute('http.url', req.originalUrl);
 ### OpenTelemetry SDK Patterns
 
 #### Node.js Initialization
+
 ```javascript
 // Initialize before importing other modules
 require('./tracing');
@@ -83,6 +100,7 @@ sdk.start();
 ```
 
 #### Custom Span Creation
+
 ```javascript
 const { trace } = require('@opentelemetry/api');
 const tracer = trace.getTracer('service-name', '1.0.0');
@@ -110,6 +128,7 @@ tracer.startActiveSpan('order.process', (span) => {
 ### Collector Configuration Patterns
 
 #### Processor Ordering (MANDATORY)
+
 ```yaml
 processors:
   memory_limiter:    # ALWAYS FIRST
@@ -128,6 +147,7 @@ processors:
 ```
 
 #### OTTL Security Transformations
+
 ```yaml
 # PII Redaction Template
 transform/redact-pii:
@@ -149,6 +169,7 @@ transform/redact-pii:
 ### Kubernetes Deployment Patterns
 
 #### Collector DaemonSet
+
 ```yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -178,6 +199,7 @@ spec:
 ### Language-Specific Best Practices
 
 #### Python (Django/FastAPI)
+
 ```python
 # Initialize OpenTelemetry
 from opentelemetry import trace
@@ -204,6 +226,7 @@ def authenticate_user(request):
 ```
 
 #### Go
+
 ```go
 package main
 
@@ -236,6 +259,7 @@ func processOrder(ctx context.Context, order Order) error {
 ### Dynatrace Integration Patterns
 
 #### DQL Query Examples
+
 ```dql
 // Service error rate
 fetch spans
@@ -249,6 +273,7 @@ fetch spans
 ```
 
 #### Dashboard Configuration
+
 ```json
 {
   "dashboardMetadata": {
@@ -267,6 +292,7 @@ fetch spans
 ```
 
 ### Comments for Copilot Context
+
 When working on observability code, use these comment patterns to guide Copilot:
 
 ```javascript
@@ -288,6 +314,7 @@ async function validatePayment(paymentData) {
 ```
 
 ## Error Handling Patterns
+
 Always include proper error handling in generated code:
 
 ```javascript
@@ -312,6 +339,7 @@ try {
 ```
 
 ## Performance Considerations
+
 Include these patterns for production-ready code:
 
 ```yaml
@@ -326,6 +354,7 @@ memory_limiter:
   limit_mib: 512
   spike_limit_mib: 128
 ```
+
 ```
 
 ### Create .github/copilot-workspace.yml (Optional)
@@ -373,6 +402,7 @@ coding_style:
 ## Testing GitHub Copilot
 
 ### 1. Comment-Based Suggestions
+
 Type comments and let Copilot generate code:
 
 ```javascript
@@ -383,6 +413,7 @@ app.post('/api/users', async (req, res) => {
 ```
 
 ### 2. Code Completion
+
 Start typing OpenTelemetry code and let Copilot complete:
 
 ```javascript
@@ -397,6 +428,7 @@ function processOrder(order) {
 ```
 
 ### 3. Configuration Generation
+
 Use Copilot Chat to generate configurations:
 
 ```
@@ -406,6 +438,7 @@ Generate an OpenTelemetry collector configuration for Kubernetes that exports to
 ## GitHub Copilot Chat Integration
 
 ### Effective Chat Prompts
+
 Use these patterns for better results:
 
 ```bash
@@ -423,6 +456,7 @@ Help me troubleshoot why traces aren't appearing in Dynatrace from my OpenTeleme
 ```
 
 ### Context-Aware Requests
+
 Reference your project setup for better suggestions:
 
 ```bash
@@ -439,12 +473,14 @@ Use the same instrumentation pattern from our user service but adapt it for the 
 ## IDE Integration
 
 ### VS Code with Copilot
+
 1. Install GitHub Copilot extension
 2. Enable Copilot Chat
 3. Use `Ctrl+I` (Cmd+I) for inline suggestions
 4. Use `Ctrl+Shift+I` for chat interface
 
 ### IntelliJ with Copilot
+
 1. Install GitHub Copilot plugin
 2. Configure workspace with `copilot-instructions.md`
 3. Use inline suggestions and code completion
@@ -453,18 +489,21 @@ Use the same instrumentation pattern from our user service but adapt it for the 
 ## Troubleshooting
 
 ### Copilot Not Using Skills Context
+
 1. Verify `copilot-instructions.md` is in project root
 2. Reference skills explicitly in comments
 3. Use specific OpenTelemetry terminology
 4. Include security requirements in prompts
 
 ### Inconsistent Code Generation
+
 1. Update `copilot-instructions.md` with clearer guidelines
 2. Use more specific comment patterns
 3. Reference existing code patterns
 4. Include error handling examples
 
 ### Missing Security Patterns
+
 1. Emphasize security in `copilot-instructions.md`
 2. Use explicit PII protection comments
 3. Reference security best practices
@@ -473,6 +512,7 @@ Use the same instrumentation pattern from our user service but adapt it for the 
 ## Best Practices
 
 ### 1. Clear Comment Patterns
+
 Use consistent comment patterns to guide Copilot:
 
 ```javascript
@@ -482,6 +522,7 @@ Use consistent comment patterns to guide Copilot:
 ```
 
 ### 2. Reference Existing Patterns
+
 Build consistency by referencing established patterns:
 
 ```javascript
@@ -490,6 +531,7 @@ Build consistency by referencing established patterns:
 ```
 
 ### 3. Incremental Development
+
 Start simple and enhance progressively:
 
 ```javascript
@@ -500,6 +542,7 @@ Start simple and enhance progressively:
 ```
 
 ### 4. Documentation Integration
+
 Keep documentation updated as code evolves:
 
 ```markdown

@@ -1,3 +1,19 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
+> **Note** This product is not officially supported by Dynatrace!
+
 # OpenTelemetry Observability Agent Skills
 
 Universal AgentSkills package providing comprehensive OpenTelemetry guidance for AI coding assistants. Supports Claude Code, GitHub Copilot, Cursor, Windsurf, and other AI-powered development tools.
@@ -47,6 +63,7 @@ Choose your AI assistant for specific setup instructions:
 Tell your AI assistant what you want in natural language:
 
 ### Instrumentation
+
 ```
 "Add OpenTelemetry tracing to my Express.js API with proper error handling"
 
@@ -56,6 +73,7 @@ Tell your AI assistant what you want in natural language:
 ```
 
 ### Collector Configuration  
+
 ```
 "Create an OpenTelemetry collector config for Kubernetes with Dynatrace export"
 
@@ -65,6 +83,7 @@ Tell your AI assistant what you want in natural language:
 ```
 
 ### Dynatrace Integration
+
 ```
 "Generate a DQL query to analyze API error rates by service and region"
 
@@ -76,25 +95,30 @@ Tell your AI assistant what you want in natural language:
 ## 🔧 AI Assistant Compatibility
 
 ### Claude Code
+
 ```bash
 # Skills are automatically available in your Claude Code workspace
 claude instrumentation help  # Get instrumentation guidance
 ```
 
 ### Cursor / Windsurf
+
 ```bash
 # Reference skills in your prompts
 @observability Add OTEL tracing to this service
 ```
 
 ### GitHub Copilot
+
 ```javascript
 // @observability-agent-skills: setup nodejs instrumentation
 // Copilot will use the skills to generate appropriate code
 ```
 
 ### VS Code Extensions
+
 Skills integrate with VS Code through the AgentSkills protocol, providing contextual assistance in:
+
 - Code completions
 - Error diagnostics  
 - Refactoring suggestions

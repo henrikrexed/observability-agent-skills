@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Span Creation and Management
 
 Spans represent units of work in distributed traces. Proper span creation is crucial for meaningful observability.
@@ -49,6 +63,7 @@ Follow semantic conventions for consistent naming:
 Choose the appropriate span kind:
 
 ### SERVER
+
 Handles incoming requests:
 
 ```python
@@ -64,6 +79,7 @@ with tracer.start_as_current_span(
 ```
 
 ### CLIENT  
+
 Makes outgoing requests:
 
 ```go
@@ -79,6 +95,7 @@ span.SetAttributes(
 ```
 
 ### INTERNAL
+
 Internal application operations:
 
 ```java
@@ -95,6 +112,7 @@ try (Scope scope = span.makeCurrent()) {
 ```
 
 ### PRODUCER/CONSUMER
+
 Message queue operations:
 
 ```javascript
@@ -124,6 +142,7 @@ const span = tracer.startSpan('order.events process', {
 Set status based on operation outcomes:
 
 ### Success
+
 ```python
 # Explicit success (optional, OK is default)
 span.set_status(trace.Status(trace.StatusCode.OK))
@@ -134,6 +153,7 @@ if status_code < 400:
 ```
 
 ### Errors
+
 ```javascript
 try {
   await processOrder(order);
@@ -157,6 +177,7 @@ try {
 ```
 
 ### HTTP Status Mapping
+
 ```go
 // Map HTTP status to span status
 switch statusCode {
@@ -176,6 +197,7 @@ default:
 ## Span Attributes
 
 ### Safe Attributes
+
 Always safe to include:
 
 ```yaml
@@ -200,6 +222,7 @@ k8s.cluster.name: "prod"
 ```
 
 ### Conditional Attributes
+
 Include only if safe:
 
 ```javascript
@@ -221,6 +244,7 @@ if (url) {
 ```
 
 ### Never Include
+
 ```javascript
 // ❌ Sensitive data
 span.setAttribute('user.password', password);
@@ -239,6 +263,7 @@ span.setAttribute('response.body', responseBody);
 ## Span Lifecycle
 
 ### Start Spans Correctly
+
 ```python
 # ✅ Use context manager
 with tracer.start_as_current_span("operation") as span:
@@ -255,6 +280,7 @@ finally:
 ```
 
 ### End Spans Properly
+
 ```go
 // ✅ Use defer
 ctx, span := tracer.Start(ctx, "operation")
@@ -266,6 +292,7 @@ ctx, span := tracer.Start(ctx, "operation")
 ```
 
 ### Context Propagation
+
 ```javascript
 // ✅ Propagate context in async operations
 async function processOrder(order) {
@@ -290,6 +317,7 @@ function processOrder(order, parentContext) {
 ## Advanced Patterns
 
 ### Span Links
+
 Link related spans that aren't parent-child:
 
 ```java
@@ -300,6 +328,7 @@ SpanBuilder spanBuilder = tracer.spanBuilder("batch.process")
 ```
 
 ### Span Events
+
 Add timeline events within spans:
 
 ```python
@@ -312,6 +341,7 @@ span.add_event("validation.completed", {
 ```
 
 ### Sampling Decisions
+
 Respect sampling decisions:
 
 ```javascript

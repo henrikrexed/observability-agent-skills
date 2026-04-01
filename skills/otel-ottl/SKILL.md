@@ -1,12 +1,26 @@
 ---
 name: 'otel-ottl'
 description: OpenTelemetry Transformation Language (OTTL) complete reference and patterns. Triggers on OTTL, transformation, filtering, data processing, telemetry manipulation.
-license: MIT
+license: Apache-2.0
 metadata:
   author: henrikrexed
   version: '1.0.0'
   workflow_type: 'advisory'
 ---
+
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
 
 # OpenTelemetry Transformation Language (OTTL)
 
@@ -15,6 +29,7 @@ Complete reference and production patterns for the OpenTelemetry Transformation 
 ## OTTL Fundamentals
 
 ### Where OTTL is Used
+
 - **transform processor**: Modify, enrich, redact telemetry data
 - **filter processor**: Drop telemetry based on conditions
 - **attributes processor**: Manage resource and record attributes
@@ -35,6 +50,7 @@ Complete reference and production patterns for the OpenTelemetry Transformation 
 | `log` | Log records | Logs only |
 
 ### Path Expressions
+
 Navigate telemetry data using dot notation:
 
 ```ottl
@@ -63,6 +79,7 @@ metric.name
 ### Converter Functions (uppercase - return values)
 
 #### Type Checking
+
 ```ottl
 IsString(span.attributes["user.id"])
 IsInt(span.attributes["http.status_code"])
@@ -71,6 +88,7 @@ IsMatch(metric.name, "^k8s\\.")
 ```
 
 #### Type Conversion
+
 ```ottl
 String(span.attributes["http.status_code"])
 Int(span.attributes["duration_ms"])
@@ -79,6 +97,7 @@ Bool(span.attributes["is_error"])
 ```
 
 #### String Operations
+
 ```ottl
 Concat([resource.attributes["service.name"], span.name], ".")
 Substring(log.body["string"], 0, 100)
@@ -88,6 +107,7 @@ Trim(log.body["message"])
 ```
 
 #### Parsing
+
 ```ottl
 ParseJSON(log.body["json_data"])
 ExtractPatterns(log.body["string"], "user=(?P<user>\\w+)")
@@ -95,6 +115,7 @@ ParseKeyValue(log.body["kv_data"], "=", " ")
 ```
 
 #### Hashing
+
 ```ottl
 SHA256(span.attributes["user.email"])
 MD5(span.attributes["session.id"])
@@ -103,6 +124,7 @@ MD5(span.attributes["session.id"])
 ## Production Patterns
 
 ### PII Redaction Pipeline
+
 ```yaml
 processors:
   transform/redact-pii:
@@ -126,6 +148,7 @@ processors:
 ```
 
 ### Kubernetes Enrichment
+
 ```yaml
 processors:
   transform/k8s-enrich:
@@ -143,6 +166,7 @@ processors:
 ```
 
 ### HTTP Enhancement
+
 ```yaml
 processors:
   transform/http-enhance:
@@ -161,6 +185,7 @@ processors:
 ```
 
 ### Cardinality Control
+
 ```yaml
 processors:
   transform/cardinality-control:
@@ -182,6 +207,7 @@ processors:
 ```
 
 ### Conditional Processing
+
 ```yaml
 processors:
   transform/conditional:
@@ -200,6 +226,7 @@ processors:
 ## Advanced Techniques
 
 ### Temp Map Pattern
+
 For complex operations, use temporary storage:
 
 ```yaml
@@ -216,6 +243,7 @@ trace_statements:
 ```
 
 ### Multi-Step Transformations
+
 ```yaml
 log_statements:
   - context: log
@@ -230,6 +258,7 @@ log_statements:
 ```
 
 ### Error Handling Patterns
+
 ```yaml
 trace_statements:
   - context: span
@@ -243,6 +272,7 @@ trace_statements:
 ## Filtering Patterns
 
 ### Drop Sensitive Data
+
 ```yaml
 processors:
   filter/drop-sensitive:
@@ -264,6 +294,7 @@ processors:
 ```
 
 ### Sampling Decisions
+
 ```yaml
 processors:
   tailsampling:
@@ -284,6 +315,7 @@ processors:
 ## Real-World Examples
 
 ### Complete PCI Compliance Pipeline
+
 ```yaml
 processors:
   # Stage 1: Remove forbidden data
@@ -308,6 +340,7 @@ processors:
 ```
 
 ### Multi-Tenant Data Isolation
+
 ```yaml
 processors:
   transform/tenant-isolation:
@@ -326,6 +359,7 @@ processors:
 ## Testing and Validation
 
 ### OTTL Expression Testing
+
 Use the OTTL playground or collector debug mode:
 
 ```bash
@@ -334,6 +368,7 @@ otelcol --config=test-config.yaml --set=processors.transform.error_mode=propagat
 ```
 
 ### Validation Patterns
+
 ```yaml
 processors:
   transform/validation:
@@ -349,6 +384,7 @@ processors:
 ## Performance Considerations
 
 ### Optimize for Scale
+
 ```yaml
 processors:
   transform/optimized:
@@ -364,6 +400,7 @@ processors:
 ```
 
 ### Avoid Performance Anti-Patterns
+
 ```yaml
 # ❌ Don't do expensive operations on every span
 - set(span.attributes["expensive"], SHA256(Concat([span.trace_id, span.span_id, String(span.start_time_unix_nano)], "")))

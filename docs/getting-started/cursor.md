@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Cursor Setup
 
 Configure OpenTelemetry observability skills for Cursor IDE with enhanced AI assistance.
@@ -5,6 +19,7 @@ Configure OpenTelemetry observability skills for Cursor IDE with enhanced AI ass
 ## Installation
 
 1. **Install the skills package:**
+
    ```bash
    npx skills add henrikrexed/observability-agent-skills
    ```
@@ -14,6 +29,7 @@ Configure OpenTelemetry observability skills for Cursor IDE with enhanced AI ass
 ## Cursor Configuration
 
 ### Create .cursorrules
+
 Create `.cursorrules` in your project root to configure Cursor's AI behavior:
 
 ```markdown
@@ -93,6 +109,7 @@ This project uses OpenTelemetry for observability with the following stack:
 ```
 
 ### Create .cursor/settings.json (Optional)
+
 Enhance Cursor's AI features with project-specific settings:
 
 ```json
@@ -121,6 +138,7 @@ Enhance Cursor's AI features with project-specific settings:
 ## Testing Your Setup
 
 ### Basic Instrumentation Test
+
 Use Cursor's chat feature with `@`:
 
 ```
@@ -128,6 +146,7 @@ Use Cursor's chat feature with `@`:
 ```
 
 Expected features:
+
 - SDK initialization with environment configuration
 - Custom span creation with semantic attributes
 - Error handling with proper span status
@@ -135,6 +154,7 @@ Expected features:
 - Resource attribute configuration
 
 ### Collector Configuration Test
+
 In Cursor chat:
 
 ```
@@ -142,6 +162,7 @@ In Cursor chat:
 ```
 
 Should generate:
+
 - Complete collector configuration YAML
 - Kubernetes deployment manifests
 - OTTL transformation rules for security
@@ -149,6 +170,7 @@ Should generate:
 - Resource detection for Kubernetes
 
 ### Code Review Test
+
 Select existing code and use Cursor's context menu:
 
 ```
@@ -156,6 +178,7 @@ Review this instrumentation for security issues and suggest improvements
 ```
 
 Cursor should identify:
+
 - Potential sensitive data exposure
 - Missing error handling
 - Semantic convention violations
@@ -165,6 +188,7 @@ Cursor should identify:
 ## Cursor-Specific Features
 
 ### @ Symbol Integration
+
 Reference skills directly in your conversations:
 
 ```bash
@@ -175,6 +199,7 @@ Reference skills directly in your conversations:
 ```
 
 ### Inline Code Actions
+
 Cursor provides code actions for:
 
 - Adding OpenTelemetry instrumentation
@@ -184,6 +209,7 @@ Cursor provides code actions for:
 - Adding error handling
 
 ### Auto-Complete Enhancement
+
 The skills enhance auto-complete for:
 
 - OpenTelemetry API calls
@@ -193,6 +219,7 @@ The skills enhance auto-complete for:
 - Configuration properties
 
 ### Code Generation
+
 Use Cursor's generate feature with observability context:
 
 1. **Select code block**
@@ -203,6 +230,7 @@ Use Cursor's generate feature with observability context:
 ## Framework-Specific Setup
 
 ### Node.js + Express
+
 Add to `.cursorrules`:
 
 ```markdown
@@ -222,6 +250,7 @@ Add to `.cursorrules`:
 ```
 
 ### Python + Django
+
 Add to `.cursorrules`:
 
 ```markdown
@@ -243,6 +272,7 @@ Add to `.cursorrules`:
 ## Advanced Configuration
 
 ### Multi-Language Projects
+
 For projects with multiple languages, organize rules by directory:
 
 ```markdown
@@ -265,6 +295,7 @@ For projects with multiple languages, organize rules by directory:
 ```
 
 ### Microservices Architecture
+
 Configure service-specific guidance:
 
 ```markdown
@@ -292,18 +323,21 @@ Configure service-specific guidance:
 ## Cursor Workflow Integration
 
 ### 1. Code Generation Workflow
+
 1. **Write comment** describing what you want
 2. **Use Cursor Chat** with `@observability` reference
 3. **Review generated code** for security and best practices
 4. **Iterate** with specific feedback
 
 ### 2. Code Review Workflow
+
 1. **Select suspicious code** with potential observability issues
 2. **Right-click** → "Ask Cursor"
 3. **Request review** for security, performance, or correctness
 4. **Apply suggested fixes**
 
 ### 3. Documentation Workflow
+
 1. **Select configuration file**
 2. **Ask Cursor** to explain the configuration
 3. **Request improvements** based on best practices
@@ -312,18 +346,21 @@ Configure service-specific guidance:
 ## Troubleshooting
 
 ### Skills Not Recognized
+
 1. Verify installation: `npx skills list`
 2. Check `.cursorrules` syntax and formatting
 3. Restart Cursor IDE
 4. Clear Cursor cache if needed
 
 ### Missing Context
+
 1. Ensure `.cursorrules` is in project root
 2. Be specific about your technology stack
 3. Use `@` references to activate skills
 4. Provide code context in requests
 
 ### Inconsistent Responses
+
 1. Update `.cursorrules` with more specific requirements
 2. Use more detailed prompts
 3. Reference specific skills by name
@@ -332,6 +369,7 @@ Configure service-specific guidance:
 ## Best Practices
 
 ### 1. Specific Skill References
+
 Instead of generic requests, use specific skill references:
 
 ```
@@ -343,6 +381,7 @@ Help me with observability
 ```
 
 ### 2. Context-Rich Prompts
+
 Provide clear context about your environment:
 
 ```
@@ -350,6 +389,7 @@ Provide clear context about your environment:
 ```
 
 ### 3. Iterative Development
+
 Start simple and enhance progressively:
 
 1. Basic instrumentation
@@ -359,6 +399,7 @@ Start simple and enhance progressively:
 5. Add business context
 
 ### 4. Regular Rule Updates
+
 Update `.cursorrules` as your project evolves:
 
 ```markdown
