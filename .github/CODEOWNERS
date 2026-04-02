@@ -12,20 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Markdownlint
+# Default owners for everything in the repo
+* @henrikrexed
 
-on:
-  pull_request:
-    paths:
-      - '**/*.md'
-      - '.markdownlint.yml'
+# CI/CD and GitHub configuration
+.github/ @henrikrexed
 
-jobs:
-  markdownlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npx markdownlint-cli2 "**/*.md" "#node_modules"
+# Documentation
+docs/ @henrikrexed
+mkdocs.yml @henrikrexed
+
+# Skills content
+skills/ @henrikrexed
