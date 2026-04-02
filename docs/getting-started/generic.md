@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Generic Setup
 
 Configure OpenTelemetry observability skills for any MCP/AgentSkills-compatible AI assistant.
@@ -11,6 +25,7 @@ npx skills add henrikrexed/observability-agent-skills
 ## Universal Configuration
 
 ### Create .agent-skills.yaml
+
 Create a universal configuration file that works with most AI assistants:
 
 ```yaml
@@ -124,9 +139,11 @@ examples:
 ## Assistant-Specific Instructions
 
 ### For Chat-Based Assistants
+
 When interacting with your AI assistant, use these prompting patterns:
 
 #### Basic Instrumentation Request
+
 ```
 Using the observability-agent-skills, add OpenTelemetry instrumentation to this [language] [framework] service with:
 
@@ -144,6 +161,7 @@ Technology context:
 ```
 
 #### Collector Configuration Request
+
 ```
 Using the otel-collector skill, generate an OpenTelemetry collector configuration for:
 
@@ -160,6 +178,7 @@ Include:
 ```
 
 #### Security Review Request
+
 ```
 Using the observability-agent-skills security guidelines, review this instrumentation code for:
 
@@ -175,6 +194,7 @@ Using the observability-agent-skills security guidelines, review this instrument
 ### For IDE-Integrated Assistants
 
 #### Comment-Based Triggers
+
 Use these comment patterns to trigger skill-based assistance:
 
 ```javascript
@@ -195,6 +215,7 @@ function handleUserData(userData) {
 ```
 
 #### Code Action Triggers
+
 Most assistants support code actions. Select code and request:
 
 - "Add OpenTelemetry instrumentation following observability-agent-skills patterns"
@@ -225,6 +246,7 @@ If your AI assistant supports API integration, use these request patterns:
 ## Testing Your Setup
 
 ### Basic Functionality Test
+
 Request basic instrumentation:
 
 ```
@@ -232,6 +254,7 @@ Add OpenTelemetry tracing to a simple HTTP API endpoint with proper error handli
 ```
 
 Expected response elements:
+
 - SDK initialization code
 - Custom span creation
 - Error handling patterns
@@ -239,6 +262,7 @@ Expected response elements:
 - Semantic convention usage
 
 ### Advanced Configuration Test
+
 Request collector configuration:
 
 ```
@@ -246,6 +270,7 @@ Create a production-ready OpenTelemetry collector configuration for Kubernetes w
 ```
 
 Expected response elements:
+
 - Complete YAML configuration
 - Processor ordering (memory_limiter first, batch last)
 - OTTL transformation rules
@@ -253,6 +278,7 @@ Expected response elements:
 - Kubernetes deployment configuration
 
 ### Security Validation Test
+
 Provide code with potential security issues:
 
 ```javascript
@@ -262,6 +288,7 @@ span.setAttribute('full_url', request.originalUrl);
 ```
 
 Request review using skills. Expected feedback:
+
 - Identification of PII exposure
 - Suggestions for safe alternatives
 - Hashing/sanitization patterns
@@ -270,6 +297,7 @@ Request review using skills. Expected feedback:
 ## Framework-Specific Prompts
 
 ### Node.js + Express
+
 ```
 Using observability-agent-skills for Node.js Express applications:
 
@@ -284,6 +312,7 @@ Include error handling, performance monitoring, and Kubernetes resource attribut
 ```
 
 ### Python + Django
+
 ```
 Using observability-agent-skills for Python Django applications:
 
@@ -298,6 +327,7 @@ Follow Django best practices and include security measures.
 ```
 
 ### Go Microservices
+
 ```
 Using observability-agent-skills for Go microservices:
 
@@ -314,6 +344,7 @@ Include error wrapping and performance optimization.
 ## Common Integration Patterns
 
 ### MCP Protocol Integration
+
 If your assistant supports MCP (Model Context Protocol):
 
 ```json
@@ -331,6 +362,7 @@ If your assistant supports MCP (Model Context Protocol):
 ```
 
 ### AgentSkills Protocol
+
 For AgentSkills-compatible systems:
 
 ```yaml
@@ -347,24 +379,28 @@ skills_request:
 ## Troubleshooting
 
 ### Skills Not Recognized
+
 1. Verify installation: `npx skills list`
 2. Check skill name spelling: `henrikrexed/observability-agent-skills`
 3. Use specific skill references: `otel-instrumentation`, `otel-collector`, etc.
 4. Include skill context in prompts explicitly
 
 ### Generic Responses (Not Using Skills)
+
 1. Reference skills explicitly in prompts
 2. Use specific OpenTelemetry terminology
 3. Include security and performance requirements
 4. Mention production readiness needs
 
 ### Missing Security Patterns
+
 1. Explicitly request PII protection
 2. Reference security guidelines
 3. Include compliance requirements
 4. Ask for security review specifically
 
 ### Inconsistent Code Quality
+
 1. Request production-ready patterns
 2. Include error handling requirements
 3. Ask for semantic convention compliance
@@ -373,6 +409,7 @@ skills_request:
 ## Best Practices
 
 ### 1. Explicit Skill References
+
 Always reference skills explicitly:
 
 ```
@@ -380,6 +417,7 @@ Using the observability-agent-skills package, specifically the otel-instrumentat
 ```
 
 ### 2. Technology Context
+
 Provide clear context about your stack:
 
 ```
@@ -387,6 +425,7 @@ For a Node.js Express application deployed on Kubernetes with Dynatrace observab
 ```
 
 ### 3. Security Requirements
+
 Always include security considerations:
 
 ```
@@ -394,6 +433,7 @@ Ensure PII protection, follow security best practices, and implement proper data
 ```
 
 ### 4. Production Readiness
+
 Request production-grade implementations:
 
 ```
@@ -401,6 +441,7 @@ Generate production-ready code with proper error handling, performance optimizat
 ```
 
 ### 5. Iterative Refinement
+
 Build complexity progressively:
 
 1. Start with basic instrumentation

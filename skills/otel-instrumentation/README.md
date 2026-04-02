@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # OpenTelemetry Instrumentation Skill
 
 This skill provides comprehensive guidance for instrumenting applications with OpenTelemetry SDKs. It covers all three signal types (traces, metrics, logs) with security-first practices.
@@ -14,20 +28,25 @@ This skill provides comprehensive guidance for instrumenting applications with O
 ## Key Features
 
 ### 🔒 Security Built-In
+
 All patterns include PII protection and secure attribute handling by default.
 
 ### 📊 Production-Ready
+
 Patterns tested in high-scale production environments.
 
 ### 🎯 Semantic Conventions
+
 Follows OpenTelemetry semantic conventions for consistent telemetry.
 
 ### 🏗️ Framework Coverage
+
 Specific guidance for popular frameworks in each language.
 
 ## Quick Examples
 
 ### Express.js API Tracing
+
 ```javascript
 app.use((req, res, next) => {
   const span = trace.getActiveSpan();
@@ -44,6 +63,7 @@ app.use((req, res, next) => {
 ```
 
 ### Database Query Spans
+
 ```python
 with tracer.start_as_current_span("db.query") as span:
     span.set_attributes({
@@ -56,6 +76,7 @@ with tracer.start_as_current_span("db.query") as span:
 ```
 
 ### Custom Metrics
+
 ```go
 // Counter for request processing
 requestCounter := meter.Int64Counter(

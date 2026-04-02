@@ -1,12 +1,26 @@
 ---
 name: 'otel-instrumentation'
 description: OpenTelemetry SDK instrumentation patterns, spans, metrics, logs, and PII protection. Triggers on instrumentation, tracing, metrics, observability setup.
-license: MIT
+license: Apache-2.0
 metadata:
   author: henrikrexed
   version: '1.0.0'
   workflow_type: 'advisory'
 ---
+
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
 
 # OpenTelemetry Instrumentation
 
@@ -31,24 +45,28 @@ Production-ready patterns for instrumenting applications with OpenTelemetry SDKs
 ## Key Principles
 
 ### Security First
+
 - Never instrument credentials, API keys, or PII
 - Sanitize URLs to remove sensitive query parameters
 - Use hashing for user identifiers when correlation is needed
 - Implement defensive programming practices
 
 ### Production Readiness
+
 - Configure proper error handling and fallbacks
 - Set appropriate resource attributes for service discovery
 - Use semantic conventions for consistent naming
 - Implement cardinality controls to prevent metric explosions
 
 ### Performance Awareness
+
 - Use sampling to control data volume
 - Batch operations when possible  
 - Avoid synchronous exports in critical paths
 - Monitor instrumentation overhead
 
 ### Correlation Excellence
+
 - Propagate trace context across service boundaries
 - Use consistent resource attributes for service grouping
 - Link related spans with parent-child relationships
@@ -57,19 +75,25 @@ Production-ready patterns for instrumenting applications with OpenTelemetry SDKs
 ## Common Patterns
 
 ### Basic Setup
+
 Always start with proper SDK initialization and resource detection.
 
 ### Error Handling  
+
 Set span status and record exceptions appropriately.
 
 ### Async Operations
+
 Handle context propagation correctly in async workflows.
 
 ### HTTP Instrumentation
+
 Capture request/response metadata while protecting sensitive data.
 
 ### Database Queries
+
 Record operation details without exposing literal values.
 
 ### Custom Metrics
+
 Choose appropriate instrument types and manage cardinality.

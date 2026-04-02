@@ -12,15 +12,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-# Semantic Conventions Skill
+# Security Policy
 
-Guidance for applying OpenTelemetry semantic conventions correctly.
+## Reporting a Vulnerability
 
-For full details, see the [SKILL.md](https://github.com/henrikrexed/observability-agent-skills/blob/main/skills/otel-semantic-conventions/SKILL.md).
+If you discover a security vulnerability in this project, please report it responsibly.
 
-## Key Topics
+**Do not open a public GitHub issue for security vulnerabilities.**
 
-- Attribute registry and selection
-- Span naming patterns and kind selection
-- Status code mapping
-- Stability levels and migration
+Instead, please report security issues by emailing the Dynatrace open source team or by using GitHub's private vulnerability reporting feature on this repository.
+
+## Supported Versions
+
+We provide security updates for the latest release only.

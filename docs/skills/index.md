@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Skills Overview
 
 The OpenTelemetry Observability Agent Skills package includes 5 specialized skills that cover all aspects of OpenTelemetry implementation.
@@ -6,7 +20,7 @@ The OpenTelemetry Observability Agent Skills package includes 5 specialized skil
 
 <div class="grid cards" markdown>
 
--   :fontawesome-solid-code:{ .lg .middle } **[Instrumentation](instrumentation.md)**
+- :fontawesome-solid-code:{ .lg .middle } **[Instrumentation](instrumentation.md)**
 
     ---
 
@@ -14,7 +28,7 @@ The OpenTelemetry Observability Agent Skills package includes 5 specialized skil
 
     **Covers:** Auto-instrumentation, custom spans, metrics, error handling, security
 
--   :fontawesome-solid-gear:{ .lg .middle } **[Collector](collector.md)**
+- :fontawesome-solid-gear:{ .lg .middle } **[Collector](collector.md)**
 
     ---
 
@@ -22,7 +36,7 @@ The OpenTelemetry Observability Agent Skills package includes 5 specialized skil
 
     **Covers:** Configuration, processors, deployment, performance, monitoring
 
--   :fontawesome-solid-filter:{ .lg .middle } **[OTTL](ottl.md)**
+- :fontawesome-solid-filter:{ .lg .middle } **[OTTL](ottl.md)**
 
     ---
 
@@ -30,7 +44,7 @@ The OpenTelemetry Observability Agent Skills package includes 5 specialized skil
 
     **Covers:** Data transformation, filtering, enrichment, security, performance
 
--   :fontawesome-solid-tags:{ .lg .middle } **[Semantic Conventions](semantic-conventions.md)**
+- :fontawesome-solid-tags:{ .lg .middle } **[Semantic Conventions](semantic-conventions.md)**
 
     ---
 
@@ -38,7 +52,7 @@ The OpenTelemetry Observability Agent Skills package includes 5 specialized skil
 
     **Covers:** Attributes, naming, versioning, migration, compliance
 
--   :fontawesome-solid-chart-line:{ .lg .middle } **[Dynatrace](dynatrace.md)**
+- :fontawesome-solid-chart-line:{ .lg .middle } **[Dynatrace](dynatrace.md)**
 
     ---
 
@@ -53,20 +67,25 @@ The OpenTelemetry Observability Agent Skills package includes 5 specialized skil
 Each skill provides:
 
 ### 📋 Rule-Based Guidance
+
 Structured rules covering specific aspects of OpenTelemetry implementation, with clear examples and anti-patterns.
 
 ### 🔒 Security-First Approach
+
 Every skill includes security considerations, PII protection patterns, and compliance guidelines.
 
 ### 🚀 Production-Ready Patterns
+
 All patterns are tested in production environments and optimized for scale and reliability.
 
 ### 🎯 Framework-Specific Guidance
+
 Tailored advice for popular frameworks and languages, with technology-specific best practices.
 
 ## Skill Integration
 
 ### Natural Language Prompts
+
 Skills work best with natural language requests:
 
 ```
@@ -78,6 +97,7 @@ Skills work best with natural language requests:
 ```
 
 ### AI Assistant Compatibility
+
 Skills are designed to work with any AI assistant that supports:
 
 - **Context injection** for background knowledge
@@ -100,6 +120,7 @@ Skills are designed to work with any AI assistant that supports:
 ## Using Skills Effectively
 
 ### 1. Be Specific
+
 Instead of "add observability," request specific implementations:
 
 ```
@@ -107,6 +128,7 @@ Instead of "add observability," request specific implementations:
 ```
 
 ### 2. Include Context
+
 Provide information about your environment:
 
 ```
@@ -114,6 +136,7 @@ Provide information about your environment:
 ```
 
 ### 3. Reference Skills Directly
+
 Many assistants support skill references:
 
 ```
@@ -122,6 +145,7 @@ Many assistants support skill references:
 ```
 
 ### 4. Security First
+
 Always include security considerations:
 
 ```
@@ -133,6 +157,7 @@ Always include security considerations:
 Skills work together for comprehensive solutions:
 
 ### Full Stack Implementation
+
 ```
 1. Use otel-instrumentation for application tracing
 2. Use otel-collector for data pipeline
@@ -141,6 +166,7 @@ Skills work together for comprehensive solutions:
 ```
 
 ### Security-Focused Implementation
+
 ```
 1. otel-instrumentation: Secure SDK setup
 2. otel-ottl: PII redaction rules
@@ -148,6 +174,7 @@ Skills work together for comprehensive solutions:
 ```
 
 ### Performance-Optimized Implementation
+
 ```
 1. otel-collector: Optimized pipeline config
 2. otel-ottl: Efficient transformations

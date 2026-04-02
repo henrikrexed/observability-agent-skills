@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Node.js OpenTelemetry Instrumentation
 
 Production patterns for instrumenting Node.js applications with OpenTelemetry.
@@ -5,11 +19,13 @@ Production patterns for instrumenting Node.js applications with OpenTelemetry.
 ## Quick Start
 
 ### Installation
+
 ```bash
 npm install @opentelemetry/auto-instrumentations-node
 ```
 
 ### Environment Setup
+
 ```bash
 export OTEL_SERVICE_NAME="my-service"
 export OTEL_TRACES_EXPORTER="otlp"
@@ -23,12 +39,14 @@ export OTEL_EXPORTER_OTLP_PROTOCOL="grpc"  # Important for gRPC receivers
 ### Auto-Instrumentation Activation
 
 **ESM Projects:**
+
 ```bash
 export NODE_OPTIONS="--import @opentelemetry/auto-instrumentations-node/register"
 node app.js
 ```
 
 **CommonJS Projects:**
+
 ```bash
 export NODE_OPTIONS="--require @opentelemetry/auto-instrumentations-node/register"
 node app.js
@@ -37,6 +55,7 @@ node app.js
 ## Manual SDK Configuration
 
 ### Basic Setup
+
 ```javascript
 // tracing.js
 const { NodeSDK } = require('@opentelemetry/sdk-node');
@@ -101,6 +120,7 @@ process.on('SIGTERM', () => {
 ## Express.js Integration
 
 ### Complete Setup
+
 ```javascript
 // app.js
 require('./tracing'); // Initialize before importing other modules
@@ -173,6 +193,7 @@ app.use((error, req, res, next) => {
 ```
 
 ### Async Context Handling
+
 ```javascript
 async function processOrderItems(items) {
   // Context is automatically propagated in async/await
@@ -198,6 +219,7 @@ async function processOrderItems(items) {
 ## Database Integration
 
 ### MongoDB
+
 ```javascript
 const { MongoClient } = require('mongodb');
 
@@ -230,6 +252,7 @@ async function findUserOrders(userId) {
 ```
 
 ### PostgreSQL with pg
+
 ```javascript
 const { Pool } = require('pg');
 
@@ -268,6 +291,7 @@ function sanitizeSqlQuery(query) {
 ## HTTP Client Instrumentation
 
 ### Axios Configuration
+
 ```javascript
 const axios = require('axios');
 const { trace } = require('@opentelemetry/api');
@@ -320,6 +344,7 @@ apiClient.interceptors.response.use(
 ## Metrics Integration
 
 ### Custom Metrics
+
 ```javascript
 const { metrics } = require('@opentelemetry/api');
 
@@ -359,6 +384,7 @@ app.use((req, res, next) => {
 ## Logging Integration
 
 ### Structured Logging with Winston
+
 ```javascript
 const winston = require('winston');
 const { trace } = require('@opentelemetry/api');
@@ -403,6 +429,7 @@ logger.info('User order created', {
 ## Testing Patterns
 
 ### Span Testing
+
 ```javascript
 // test/instrumentation.test.js
 const { trace } = require('@opentelemetry/api');
@@ -440,6 +467,7 @@ describe('Instrumentation', () => {
 ```
 
 ### Integration Testing
+
 ```javascript
 // test/integration.test.js
 const request = require('supertest');
@@ -465,6 +493,7 @@ describe('API Integration', () => {
 ## Production Considerations
 
 ### Performance
+
 ```javascript
 // Use sampling to control overhead
 const { TraceIdRatioBasedSampler } = require('@opentelemetry/sdk-trace-base');
@@ -476,6 +505,7 @@ const sdk = new NodeSDK({
 ```
 
 ### Error Handling
+
 ```javascript
 // Prevent instrumentation from crashing the app
 process.on('uncaughtException', (error) => {
@@ -488,6 +518,7 @@ process.on('uncaughtException', (error) => {
 ```
 
 ### Health Checks
+
 ```javascript
 app.get('/health', (req, res) => {
   // Don't create spans for health checks

@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # OpenTelemetry Observability Agent Skills
 
 Universal AgentSkills package providing comprehensive OpenTelemetry guidance for AI coding assistants. Works with Claude Code, GitHub Copilot, Cursor, Windsurf, and other AI-powered development tools.
@@ -16,25 +30,25 @@ A comprehensive collection of specialized skills that help AI assistants write b
 
 <div class="grid cards" markdown>
 
--   :fontawesome-solid-code:{ .lg .middle } **Production-Ready Patterns**
+- :fontawesome-solid-code:{ .lg .middle } **Production-Ready Patterns**
 
     ---
 
     Battle-tested patterns from real-world implementations running at scale
 
--   :fontawesome-solid-shield:{ .lg .middle } **Security First**
+- :fontawesome-solid-shield:{ .lg .middle } **Security First**
 
     ---
 
     Built-in PII protection, sensitive data redaction, and compliance patterns
 
--   :fontawesome-solid-dharmachakra:{ .lg .middle } **Kubernetes Native**
+- :fontawesome-solid-dharmachakra:{ .lg .middle } **Kubernetes Native**
 
     ---
 
     Container-optimized configurations and deployment best practices
 
--   :fontawesome-solid-chart-line:{ .lg .middle } **Dynatrace Integration**
+- :fontawesome-solid-chart-line:{ .lg .middle } **Dynatrace Integration**
 
     ---
 
@@ -77,6 +91,7 @@ Tell your AI assistant what you want in plain English:
 ## 🔧 AI Assistant Compatibility
 
 ### :simple-anthropic: Claude Code
+
 Skills are automatically available in your workspace. Use with slash commands:
 
 ```bash
@@ -85,6 +100,7 @@ claude collector config     # Generate collector configuration
 ```
 
 ### :simple-cursor: Cursor
+
 Reference skills in your prompts with `@`:
 
 ```bash
@@ -93,6 +109,7 @@ Reference skills in your prompts with `@`:
 ```
 
 ### :simple-github: GitHub Copilot
+
 Skills integrate through comments and chat:
 
 ```javascript
@@ -101,6 +118,7 @@ Skills integrate through comments and chat:
 ```
 
 ### :material-microsoft-visual-studio-code: VS Code Extensions
+
 Skills work with any MCP/AgentSkills-compatible extension, providing:
 
 - Contextual code completions
@@ -113,31 +131,31 @@ Choose your AI assistant to get specific setup instructions:
 
 <div class="grid cards" markdown>
 
--   :simple-anthropic:{ .lg .middle } [**Claude Code**](getting-started/claude-code.md)
+- :simple-anthropic:{ .lg .middle } [**Claude Code**](getting-started/claude-code.md)
 
     ---
 
     Setup for Claude Code with CLAUDE.md and slash commands
 
--   :simple-cursor:{ .lg .middle } [**Cursor**](getting-started/cursor.md)
+- :simple-cursor:{ .lg .middle } [**Cursor**](getting-started/cursor.md)
 
     ---
 
     Configuration with .cursorrules and IDE integration
 
--   :simple-github:{ .lg .middle } [**GitHub Copilot**](getting-started/github-copilot.md)
+- :simple-github:{ .lg .middle } [**GitHub Copilot**](getting-started/github-copilot.md)
 
     ---
 
     Setup with copilot-instructions.md for enhanced context
 
--   :material-microsoft-visual-studio-code:{ .lg .middle } [**Windsurf**](getting-started/windsurf.md)
+- :material-microsoft-visual-studio-code:{ .lg .middle } [**Windsurf**](getting-started/windsurf.md)
 
     ---
 
     Configuration with .windsurfrules for optimal integration
 
--   :material-robot:{ .lg .middle } [**Generic Setup**](getting-started/generic.md)
+- :material-robot:{ .lg .middle } [**Generic Setup**](getting-started/generic.md)
 
     ---
 

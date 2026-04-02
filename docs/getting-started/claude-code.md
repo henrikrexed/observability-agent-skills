@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Claude Code Setup
 
 Configure OpenTelemetry observability skills for Claude Code with dedicated workspace integration.
@@ -5,6 +19,7 @@ Configure OpenTelemetry observability skills for Claude Code with dedicated work
 ## Installation
 
 1. **Install the skills package:**
+
    ```bash
    npx skills add henrikrexed/observability-agent-skills
    ```
@@ -14,6 +29,7 @@ Configure OpenTelemetry observability skills for Claude Code with dedicated work
 ## Complete Workspace Setup
 
 ### Create CLAUDE.md
+
 Create `CLAUDE.md` in your project root with comprehensive observability context:
 
 ```markdown
@@ -57,6 +73,7 @@ This project uses OpenTelemetry for observability. Use the installed observabili
 ```
 
 ### Create .claude/settings.json
+
 Create `.claude/settings.json` to configure Claude Code behavior:
 
 ```json
@@ -91,6 +108,7 @@ Create `.claude/settings.json` to configure Claude Code behavior:
 ```
 
 ### Create .claude/commands/
+
 Add custom slash commands for quick access:
 
 ```bash
@@ -98,6 +116,7 @@ mkdir -p .claude/commands
 ```
 
 #### .claude/commands/otel.md
+
 ```markdown
 # OpenTelemetry Commands
 
@@ -122,6 +141,7 @@ Create Dynatrace dashboard configuration.
 ## Testing Your Setup
 
 ### Basic Instrumentation Test
+
 Ask Claude Code:
 
 ```
@@ -129,6 +149,7 @@ Add OpenTelemetry instrumentation to this Express.js service with proper error h
 ```
 
 Expected response should include:
+
 - SDK initialization with proper configuration
 - Span creation with semantic conventions
 - Error handling with span status
@@ -136,6 +157,7 @@ Expected response should include:
 - Resource attribute configuration
 
 ### Collector Configuration Test
+
 Ask Claude Code:
 
 ```
@@ -143,6 +165,7 @@ Create an OpenTelemetry collector configuration for Kubernetes that exports to D
 ```
 
 Expected response should include:
+
 - Complete collector YAML configuration
 - Kubernetes deployment manifests
 - OTTL transformation rules
@@ -150,6 +173,7 @@ Expected response should include:
 - Security best practices
 
 ### Security Test
+
 Ask Claude Code:
 
 ```
@@ -157,6 +181,7 @@ Review this instrumentation code for sensitive data exposure and suggest improve
 ```
 
 Then provide any instrumentation code. Claude should identify:
+
 - Potential PII in attributes
 - Sensitive data in URLs or headers
 - Missing sanitization patterns
@@ -165,6 +190,7 @@ Then provide any instrumentation code. Claude should identify:
 ## Claude Code Specific Features
 
 ### Slash Commands
+
 Use these slash commands for quick access:
 
 ```bash
@@ -176,6 +202,7 @@ Use these slash commands for quick access:
 ```
 
 ### Auto-Context
+
 Claude Code automatically includes project context:
 
 - Detects your programming language and framework
@@ -184,6 +211,7 @@ Claude Code automatically includes project context:
 - Maintains consistency across code suggestions
 
 ### Workspace Memory
+
 Claude Code remembers:
 
 - Your observability architecture decisions
@@ -194,6 +222,7 @@ Claude Code remembers:
 ## Project-Specific Configuration
 
 ### Node.js Project
+
 Add to your CLAUDE.md:
 
 ```markdown
@@ -210,6 +239,7 @@ Add to your CLAUDE.md:
 ```
 
 ### Python Project
+
 Add to your CLAUDE.md:
 
 ```markdown
@@ -228,6 +258,7 @@ Add to your CLAUDE.md:
 ## Advanced Configuration
 
 ### Custom Skill Priorities
+
 In `.claude/settings.json`, prioritize specific skills:
 
 ```json
@@ -248,6 +279,7 @@ In `.claude/settings.json`, prioritize specific skills:
 ```
 
 ### Security-First Mode
+
 Enable enhanced security checking:
 
 ```json
@@ -264,17 +296,20 @@ Enable enhanced security checking:
 ## Troubleshooting
 
 ### Skills Not Loading
+
 1. Verify installation: `npx skills list`
 2. Check `.claude/settings.json` syntax
 3. Restart Claude Code
 4. Clear skill cache: `npx skills cache clear`
 
 ### Missing Context
+
 1. Ensure `CLAUDE.md` exists in project root
 2. Check `.claude/settings.json` configuration
 3. Verify skill permissions in Claude Code settings
 
 ### Inconsistent Suggestions
+
 1. Update project context in `CLAUDE.md`
 2. Specify your technology stack clearly
 3. Use more specific prompts
@@ -283,6 +318,7 @@ Enable enhanced security checking:
 ## Best Practices
 
 ### 1. Keep Context Updated
+
 Regularly update `CLAUDE.md` as your project evolves:
 
 ```markdown
@@ -294,16 +330,19 @@ Regularly update `CLAUDE.md` as your project evolves:
 ```
 
 ### 2. Use Specific Prompts
+
 Instead of: "Add observability"
 
 Use: "Add OpenTelemetry tracing to this Express.js endpoint with span attributes following semantic conventions and PII protection for user data"
 
 ### 3. Leverage Workspace Memory
+
 Reference previous implementations:
 
 "Use the same PII protection pattern we implemented for the user service, but adapt it for payment processing"
 
 ### 4. Iterate and Refine
+
 Start with basic patterns, then enhance:
 
 1. Basic instrumentation

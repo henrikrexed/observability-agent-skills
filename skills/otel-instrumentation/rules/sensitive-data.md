@@ -1,3 +1,17 @@
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
 # Sensitive Data Protection
 
 Prevent PII, credentials, and other sensitive information from entering telemetry data. Security must be built-in from the start.
@@ -7,6 +21,7 @@ Prevent PII, credentials, and other sensitive information from entering telemetr
 These categories must NEVER appear in any telemetry:
 
 ### Authentication Data
+
 ```javascript
 // ❌ NEVER do this
 span.setAttribute('password', user.password);
@@ -20,6 +35,7 @@ span.setAttribute('auth.provider', 'oauth2');
 ```
 
 ### Financial Information
+
 ```python
 # ❌ NEVER do this
 span.set_attribute('credit_card', payment.card_number)
@@ -33,6 +49,7 @@ span.set_attribute('payment.amount_cents', payment.amount)
 ```
 
 ### Personal Identifiers
+
 ```go
 // ❌ NEVER do this
 span.SetAttributes(
@@ -52,6 +69,7 @@ span.SetAttributes(
 ## Safe Hashing Patterns
 
 ### User ID Hashing
+
 ```javascript
 const crypto = require('crypto');
 
@@ -68,6 +86,7 @@ span.setAttribute('user.id', hashUserId(req.user?.id));
 ```
 
 ### Email Hashing for Correlation
+
 ```python
 import hashlib
 import hmac
@@ -87,6 +106,7 @@ span.set_attribute('user.email_hash', hash_email(user.email))
 ## URL Sanitization
 
 ### Query Parameter Removal
+
 ```javascript
 function sanitizeUrl(url) {
   try {
@@ -116,6 +136,7 @@ span.setAttribute('http.url', sanitizeUrl(request.url));
 ```
 
 ### Path Parameterization
+
 ```go
 func sanitizeHttpRoute(path string) string {
     // Replace numeric IDs with placeholders
@@ -136,6 +157,7 @@ span.SetAttribute("http.route", sanitizeHttpRoute(request.URL.Path))
 ## Database Query Sanitization
 
 ### Parameter Replacement
+
 ```java
 public String sanitizeSqlQuery(String query) {
     if (query == null) return "unknown";
@@ -159,6 +181,7 @@ span.setAttribut("db.statement", sanitizeSqlQuery(sql));
 ```
 
 ### Query Templates
+
 ```python
 def create_query_template(operation: str, table: str) -> str:
     """Create safe query template without literal values."""
@@ -177,6 +200,7 @@ span.set_attribute('db.statement', create_query_template(operation, table))
 ## HTTP Header Protection
 
 ### Authorization Header Redaction
+
 ```javascript
 function sanitizeHeaders(headers) {
   const sensitiveHeaders = [
@@ -204,6 +228,7 @@ span.setAttribute('http.request.header.content_type', req.get('content-type'));
 ## Request/Response Body Handling
 
 ### Never Log Full Bodies
+
 ```python
 # ❌ NEVER do this
 span.set_attribute('request.body', json.dumps(request.json))
@@ -217,6 +242,7 @@ span.set_attribute('response.content_length', len(response.content))
 ```
 
 ### Safe Body Attributes
+
 ```go
 // Extract safe metadata from request bodies
 func extractSafeBodyAttributes(body []byte, contentType string) map[string]interface{} {
@@ -241,6 +267,7 @@ func extractSafeBodyAttributes(body []byte, contentType string) map[string]inter
 ## Log Message Sanitization
 
 ### Pattern-Based Redaction
+
 ```javascript
 function sanitizeLogMessage(message) {
   const patterns = [
@@ -279,6 +306,7 @@ logger.info(sanitizeLogMessage(message), {
 ## Framework-Specific Patterns
 
 ### Express.js Middleware
+
 ```javascript
 function sensitiveDataMiddleware(req, res, next) {
   // Sanitize req.user for span context
@@ -312,6 +340,7 @@ app.use((req, res, next) => {
 ```
 
 ### Django Integration
+
 ```python
 class SensitiveDataMiddleware:
     def __init__(self, get_response):
@@ -339,6 +368,7 @@ def add_user_context_to_span(request, span):
 ## Validation and Testing
 
 ### Attribute Validation
+
 ```go
 // Validate attributes before setting
 func setAttributeSafely(span trace.Span, key string, value interface{}) {
@@ -370,6 +400,7 @@ func setAttributeSafely(span trace.Span, key string, value interface{}) {
 ```
 
 ### Testing Patterns
+
 ```javascript
 // Unit tests for sensitive data protection
 describe('Sensitive Data Protection', () => {

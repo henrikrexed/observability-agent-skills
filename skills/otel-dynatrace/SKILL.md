@@ -1,12 +1,26 @@
 ---
 name: 'otel-dynatrace'
 description: Dynatrace integration patterns - DQL queries, dashboard creation, SLOs, workflows, and dtctl CLI. Triggers on Dynatrace, DQL, dashboard, SLO, workflow, dtctl.
-license: MIT
+license: Apache-2.0
 metadata:
   author: henrikrexed
   version: '1.0.0'
   workflow_type: 'advisory'
 ---
+
+<!-- Copyright 2026 Dynatrace LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
 
 # Dynatrace OpenTelemetry Integration
 
@@ -25,24 +39,28 @@ Production patterns for Dynatrace integration with OpenTelemetry, including DQL 
 ## Key Principles
 
 ### Data-Driven Observability
+
 - Use DQL to extract insights from OpenTelemetry data
 - Create meaningful dashboards that drive decisions
 - Define SLOs based on business requirements
 - Automate responses to observability events
 
 ### Dashboard-as-Code
+
 - Version control dashboard definitions
 - Use dtctl for programmatic dashboard management  
 - Implement consistent styling and layouts
 - Enable team collaboration through code
 
 ### Proactive Monitoring
+
 - Set up predictive alerts before issues impact users
 - Use workflows for automated incident response
 - Create SLOs that align with business objectives
 - Build dashboards that surface actionable insights
 
 ### OpenTelemetry Integration
+
 - Leverage semantic conventions in DQL queries
 - Create dashboards optimized for OTel data structure
 - Use trace context for cross-service analysis
@@ -51,16 +69,21 @@ Production patterns for Dynatrace integration with OpenTelemetry, including DQL 
 ## Common Patterns
 
 ### Service Health Dashboards
+
 Comprehensive service monitoring with OTel data.
 
 ### Error Rate Analysis
+
 DQL queries for identifying and categorizing errors.
 
 ### Performance Trending
+
 Track latency and throughput over time.
 
 ### Infrastructure Correlation  
+
 Link application performance to infrastructure health.
 
 ### Business KPI Tracking
+
 Monitor business metrics alongside technical metrics.
